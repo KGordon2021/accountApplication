@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles.css">
+    <title>User Login</title>
+</head>
+
+<body>
+    <h1>Login</h1>
+    <div class="login">
+        <div class="mess"> <!--styles cannot be applied to this-->
+        <% if (messages.error) { %>
+            <p style="color:red"><%- messages.error %></p>
+            <% } %>
+              
+            <% if (messages.success) { %>
+                <p style="color:green"><%- messages.success %></p>
+        <% } %>
+        </div>
+    
+        <form action="/user/login" method="post">
+            <div class="name">
+                <label for="usr_email">Email Address: </label>
+                <br>
+                <input type="text" name="usr_email" placeholder="Email Address">
+            </div> 
+            
+            <div class="name">
+                <label for="pswrd"> Password:  </label>
+                <br>
+                <input type="password" name="pswrd" placeholder="Password">
+            </div>
+            <div class="submit">
+                <input type="submit">
+            </div>
+            <div class="sml_dets">
+                <div>
+                <a href="">Forgot Password?</a>
+                </div>
+                <div class="rem">
+                <input type="checkbox" name="" id=""> <label>Remember Me?</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

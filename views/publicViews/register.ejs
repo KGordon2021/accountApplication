@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+    <h1>Register</h1>
+    <% if (messages.error) { %>
+        <p style="color:red"><%- messages.error %></p>
+        <% } %>
+          
+        <% if (messages.success) { %>
+            <p style="color:green"><%- messages.success %></p>
+    <% } %>
+
+   
+    <div class="login register">
+        <form action="/register/new_user" method="post">
+               <div class="">
+                <label for="S_Id">User ID: </label>
+                <br>
+                <input type="number" name="u_ID" placeholder="1001">
+            </div> 
+
+            <div class="">
+                <label for="S_Id">First Name: </label>
+                <br>
+                <input type="text" name="f_nm" placeholder="Jade">
+            </div> 
+            <div class="">
+                <label for="f_nm">Last Name : </label>
+                <br>
+                <input type="text" name="l_nm" placeholder="Watson">
+            </div> 
+
+           <div class="">
+                <label for="usr_email">Email Address: </label>
+                <br>
+                <input type="text" name="usr_email" placeholder="abc@scarletprojects.com">
+            </div> 
+
+            <div class="">
+                <label for="usr_email">Company Id: </label>
+                <br>
+                <input type="number" name="comp_Id" placeholder="1001">
+            </div> 
+            
+            <div class="">
+                <label for="pswrd"> Password:  </label>
+                <br>
+                <input type="password" name="pswrd" placeholder="Password">
+            </div>
+            <div class="submit">
+                <input type="submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
