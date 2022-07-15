@@ -22,7 +22,8 @@ var conn  = require('./lib/dbConnections');
 //will be changing links to js routes folder here
 var homeRouter = require('./routes/home');
 var userAuthRouter = require('./routes/userAuth');
-// var loginRouter = require('./routes/login');
+var employeesRouter = require('./routes/employees');
+var employeeCrudRouter = require('./routes/employeeCrud');
 // var allprogramsRouter = require('./routes/allprograms');
 // var dc_crudRouter = require('./routes/dc_crud');
 // var affiliates_crudRouter = require('./routes/affiliates_crud');
@@ -60,7 +61,8 @@ app.set('views', path.join(__dirname, 'views'));
 
  app.use('/', homeRouter); 
 app.use(userAuthRouter); 
-//  app.use(loginRouter);
+app.use(employeesRouter); 
+ app.use(employeeCrudRouter);
 //  app.use(allprogramsRouter);
 //  app.use(dc_crudRouter);
 //  app.use(affiliates_crudRouter);

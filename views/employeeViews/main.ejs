@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles.css">
+    <title>Employee Page</title>
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+    <div>
+
+        <h1>Welcome Back
+            <% if (my_session.loggedin == true) { %>
+             <%= my_session.first_Nm %> 
+            <% } %>
+        </h1>
+        <p>How Can We Assist you today?</p>
+        <div class="opts">
+            <input type="hidden" value="<%= my_session.emp_id %>" name="user_id">
+            <p><a href="">Request HR Consultation</a></p>
+            <p><a href="/employees/allplayslip/<%= my_session.emp_id %>">View Pay Slips</a></p>
+            
+            <% if (my_session.user_Auth == 2) { %>
+            <p>
+                <a href="supervisor">Add Employee Hours</a>
+            </p>
+                
+               <% } %>
+        </div>
+    </div>
+</body>
+</html>

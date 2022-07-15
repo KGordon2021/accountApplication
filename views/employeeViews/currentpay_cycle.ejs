@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles.css">
+    <title>User Login</title>
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+    <h1>Current Pay Slip</h1>
+
+     <div>
+        <div class="empdets">
+            <h2> Employee: <%= my_session.first_Nm%> <%= my_session.first_lm%> </h2>
+            <h3> <%= my_session.emp_id %> </h3>
+        </div>
+
+        <% if(currentpayslip.length) {
+            for(var i = 0; i < currentpayslip.length; i++) { 
+         %>
+            <table>
+                <thead>
+                <tr>
+                    <th>Pay Cycle</th>
+                    <th>Date From:</th>
+                    <th>Date To:</th>
+                    <th> Regular Hours Worked </th>
+                    <th>Over Time Worked</th>
+                    <th>Total Regular Time Paid</th>
+                    <th>Total Over Time Paid</th>
+                </tr>
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td><%= currentpayslip[i].pay_cycle %> </td>
+                            <td><%= new Date(currentpayslip[i].dt_from).toDateString('fr-CA') %> </td>
+                            <td><%= new Date(currentpayslip[i].dt_to).toDateString('fr-CA') %> </td>
+                            <td> <%= currentpayslip[i].reg_hours_worked %>  </td>
+                            <td> <%= currentpayslip[i].ot_worked %>  </td>
+                            <td> <%= currentpayslip[i].total_regsal %>  </td>
+                            <td> <%= currentpayslip[i].total_ot %>  </td>
+                        </tr>
+
+                        <tr>
+                             <th colspan="8" style="text-align: right;"> Gross Salary</th>
+                        </tr>
+                        <tr>
+                            <td colspan="8" style="text-align: right;"> <%= currentpayslip[i].gross_pay %>  </td>
+                        </tr>
+                    </tbody>
+                
+            </table>
+
+         <% } %>
+        <% } %>
+    </div>
+
+</body>
+</html>

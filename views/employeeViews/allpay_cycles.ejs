@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles.css">
+    <title>Pay Cycles</title>
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+    
+    <h1>All Pay Slips </h1>
+
+    <div>
+        <% if(allpayslips.length) {
+            for(var i = 0; i < allpayslips.length; i++) { 
+         %>
+            <table>
+                <thead>
+                <tr>
+                    <th>Cycle</th>
+                    <th>Date From:</th>
+                    <th>Date To:</th>
+                    <th> Action </th>
+                </tr>
+                </thead>
+                
+                    <tbody>
+                        <tr>
+                            <td><%= allpayslips[i].pay_cycle %> </td>
+                            <td><%= new Date(allpayslips[i].dt_from).toDateString('fr-CA') %> </td>
+                            <td><%= new Date(allpayslips[i].dt_to).toDateString('fr-CA') %> </td>
+                            <td> <a href="/employees/viewplayslip/<%= allpayslips[i].id %>" >View Pay Slip</a> </td>
+                            <td> </td>
+                        </tr>
+                    </tbody>
+                
+            </table>
+
+         <% } %>
+        <% } %>
+    </div>
+
+    
+</body>
+</html>
