@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/styles.css">
     <title>Add Hours</title>
 </head>
 
@@ -14,10 +13,10 @@
     <h1>All Employees</h1>
 
     <div>
-        <form action="/supervisor/create/addinfo/<%= employeeinfo[0].ot_rate %>/<%= employeeinfo[0].reg_rates %>" method="post">
+        <form action="/accounts/emphour/new/<%= editsal[0].ot_rate %>/<%= editsal[0].reg_rates %>" method="post">
         
-         <h2><%= employeeinfo[0].emply_fn %> <%= employeeinfo[0].emply_ln %> </h2>
-            <h3><%= employeeinfo[0].dp_nm %> Department</h3>
+         <h2><%= editsal[0].emply_fn %> <%= editsal[0].emply_ln %> </h2>
+            <h3><%= editsal[0].dp_nm %> Department</h3>
                     <div>
                         <label for="">Pay Cycles: </label>
                         <select name="pay_cycle" id="">
@@ -33,32 +32,32 @@
         
                     <div>
                         <label for="">Employee Id #:</label>
-                        <input type="number" name="emp_id" placeholder="<%= employeeinfo[0].emply_id %> ">
+                        <input type="number" name="emp_id" placeholder="<%= editsal[0].emply_id %> ">
                     </div>
                           
                     <div>
                         <label for="">Over time Hours Worked:  </label>
-                        <input type="text" name="ot_wk" id="">
+                        <input type="text" name="ot_wk" id="" placeholder="<%= editsal[0].ot_worked %> ">
                     </div>
 
                     <div>
                         <label for="">Regular Hours Worked:  </label>
-                        <input type="text" name="rg_wk" id="">
+                        <input type="text" name="rg_wk" id="" placeholder="<%= editsal[0].reg_hours_worked%> ">
                     </div>
 
                     <div>
-                        <input type="hidden" name="ot_rt" valu="<%= employeeinfo[0].ot_rate %>">
-                        <input type="hidden" name="reg_rt" valu="<%= employeeinfo[0].reg_rates %>">
+                        <input type="hidden" name="ot_rt" valu="<%= editsal[0].ot_rate %>">
+                        <input type="hidden" name="reg_rt" valu="<%= editsal[0].reg_rates %>">
                     </div>
 
                     <div class="add">
-                        <input type="submit" value="Add Employee Hours">
+                        <input type="submit" value="Update Employee Hours">
                     </div>
                 </form>
         </div>                    
         <div>
-            <input type="hidden" name="ot_rt" value="<%= employeeinfo[0].ot_rate %>">
-            <input type="hidden" name="reg_rt" value="<%= employeeinfo[0].reg_rates %>">
+            <input type="hidden" name="ot_rt" value="<%= editsal[0].ot_rate %>">
+            <input type="hidden" name="reg_rt" value="<%= editsal[0].reg_rates %>">
         </div>
     </div>
 </body>

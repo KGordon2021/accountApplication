@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/styles.css">
+    <title>User Login</title>
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+    <h1>Current Pay Slip</h1>
+
+     <div>
+
+        <% if(viewpayslip.length) {
+            for(var i = 0; i < viewpayslip.length; i++) { 
+         %>
+         <div class="empdepts">
+         <h2> <%= viewpayslip[i].emply_fn %> <%= viewpayslip[i].emply_ln %> </h2>
+            
+            </div>
+         <h3> <%= viewpayslip[i].employee_id %> </h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Pay Cycle</th>
+                    <th> Regular Hours Worked </th>
+                    <th>Over Time Worked</th>
+                    <th>Total Regular Time Paid</th>
+                    <th>Total Over Time Paid</th>
+                </tr>
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td><%= viewpayslip[i].pay_cycle %> </td>
+                            
+                            <td> <%= viewpayslip[i].reg_hours_worked %>  </td>
+                            <td> <%= viewpayslip[i].ot_worked %>  </td>
+                            <td> <%= viewpayslip[i].total_regsal %>  </td>
+                            <td> <%= viewpayslip[i].total_ot %>  </td>
+                        </tr>
+
+                        <tr>
+                             <th colspan="8" style="text-align: right;"> Gross Salary</th>
+                        </tr>
+                        <tr>
+                            <td colspan="8" style="text-align: right;"> <%= viewpayslip[i].gross_pay %>  </td>
+                        </tr>
+                    </tbody>
+                
+            </table>
+
+         <% } %>
+        <% } %>
+    </div>
+
+</body>
+</html>

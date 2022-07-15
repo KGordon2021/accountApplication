@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles.css">
+    <title>Add Employees</title>
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+    
+    <h1>All Employees</h1>
+
+    <form action="/supervisor/add/new_emply" method="post">
+
+        <div>
+            <label for="">Employee Id:</label>
+            <input type="number" name="emp_id" id="">
+        </div>
+
+        <!-- <div>
+            <label for="">Employee Department Id:</label>
+            <input type="number" name="emp_dep" id="">
+        </div> -->
+
+        <div>
+            <label for="">First Name:</label>
+            <input type="text" name="emp_fn" id="">
+        </div>
+
+        <div>
+            <label for="">Last Name: </label>
+            <input type="text" name="emp_ln" id="">
+        </div>
+
+        <div>
+            <label for="">Employee Position:</label>
+            <select name="employ_pos" id="">
+                <option value="3">Intern</option>
+                <option value="2">Junior</option>
+                <option value="1">Senior </option>
+                <option value="4">supervisor</option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="submit">
+        </div>
+    </form>
+</body>
+</html>

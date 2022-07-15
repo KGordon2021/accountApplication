@@ -14,10 +14,10 @@
     <h1>All Employees</h1>
 
     <div>
-        <form action="/supervisor/create/addinfo/<%= employeeinfo[0].ot_rate %>/<%= employeeinfo[0].reg_rates %>" method="post">
+        <form action="/accounts/emphour/new/<%= employeeInfo[0].ot_rate %>/<%= employeeInfo[0].reg_rates %>" method="post">
         
-         <h2><%= employeeinfo[0].emply_fn %> <%= employeeinfo[0].emply_ln %> </h2>
-            <h3><%= employeeinfo[0].dp_nm %> Department</h3>
+         <h2><%= employeeInfo[0].emply_fn %> <%= employeeInfo[0].emply_ln %> </h2>
+            <h3><%= employeeInfo[0].dp_nm %> Department</h3>
                     <div>
                         <label for="">Pay Cycles: </label>
                         <select name="pay_cycle" id="">
@@ -33,7 +33,7 @@
         
                     <div>
                         <label for="">Employee Id #:</label>
-                        <input type="number" name="emp_id" placeholder="<%= employeeinfo[0].emply_id %> ">
+                        <input type="number" name="emp_id" placeholder="<%= employeeInfo[0].emply_id %> ">
                     </div>
                           
                     <div>
@@ -47,8 +47,8 @@
                     </div>
 
                     <div>
-                        <input type="hidden" name="ot_rt" valu="<%= employeeinfo[0].ot_rate %>">
-                        <input type="hidden" name="reg_rt" valu="<%= employeeinfo[0].reg_rates %>">
+                        <input type="hidden" name="ot_rt" valu="<%= employeeInfo[0].ot_rate %>">
+                        <input type="hidden" name="reg_rt" valu="<%= employeeInfo[0].reg_rates %>">
                     </div>
 
                     <div class="add">
@@ -57,8 +57,8 @@
                 </form>
         </div>                    
         <div>
-            <input type="hidden" name="ot_rt" value="<%= employeeinfo[0].ot_rate %>">
-            <input type="hidden" name="reg_rt" value="<%= employeeinfo[0].reg_rates %>">
+            <input type="hidden" name="ot_rt" value="<%= employeeInfo[0].ot_rate %>">
+            <input type="hidden" name="reg_rt" value="<%= employeeInfo[0].reg_rates %>">
         </div>
     </div>
 </body>

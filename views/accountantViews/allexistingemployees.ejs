@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles.css">
+    <title>Pay Cycles</title>
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+    
+    <h1>All Employees</h1>
+
+    <div>
+        
+        <% if(allemployees.length) {
+            for(var i = 0; i < allemployees.length; i++) { 
+         %>
+     
+            <table>
+                <thead>
+                <tr>
+                    
+                    <th>Employee Department</th>
+                    <th>Employee ID: </th>
+                    <th>First Name:</th>
+                    <th>Last Name:</th>
+                    <th> Action </th>
+                </tr>
+                </thead>
+      
+                    <tbody>
+                        
+                        <tr>
+                            <td><%= allemployees[i].emply_dep %></td>
+                             <td><%= allemployees[i].emply_id %> </td>
+                            <td><%= allemployees[i].emply_fn %> </td>
+                            <td><%= allemployees[i].emply_ln %> </td>
+                            <td> <a href="/AccountOff/viewpaycycle/selected/<%= allemployees[i].emply_id  %>" >Add Hours</a> </td>
+                        </tr>
+                    </tbody>
+                
+            </table>
+
+         <% } %>
+         
+         <% } else { %>
+            <div class="noRecs">
+            <p> No current records found</p>
+            </div>
+
+        <% } %>
+    </div>
+
+       
+</body>
+</html>

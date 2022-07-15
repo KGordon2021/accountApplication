@@ -4,149 +4,192 @@ var conn = require('../lib/dbConnections');
 
 //renders supervisor's view
 router.get('/supervisor', function(req, res, next) {
-
-     conn.query("SELECT  ee.*, al.user_id FROM  accounts_app.employees ee, accounts_app.allusers al WHERE al.user_id =" + req.session.emp_id + " && al.emp_dep =" + req.session.emp_dep, function(err,row){
+    if(req.session.loggedin == true && req.session.user_Auth == 2) {
+     conn.query("SELECT  ee.*, al.user_id FROM  accounts_app.employees ee, accounts_app.allusers al WHERE al.user_id =" + req.session.emp_id + " && al.emp_dep = ee.emply_dep", function(err,row){
     if(err) {
         console.log(err);
     } else {
-        res.render('../views/supervisorsViews/addHoursWorked', {editInfo:row, my_session: req.session});
+        res.render('../views/supervisorsViews/viewdepemplyee', {alldepEmployees:row, my_session: req.session});
     }
     });
+
+        } else {
+            res.redirect('/login')
+        }
 });
 
-// Create GET Router to fetch all the projects in Database
+//renders supervisor's post view for selected employee
+router.get('/supervisor/create/:id', function(req, res, next) {
+    if(req.session.loggedin == true && req.session.user_Auth == 2) {
+     conn.query("SELECT ee.*, dp.*, pr.* FROM  accounts_app.employees ee, accounts_app.departments dp, accounts_app.pay_rates pr WHERE ee.emply_dep = dp.dp_id && ee.payscale = pr.id && emply_id =" + req.params.id, function(err,row){
+    if(err) {
+        console.log(err);
+    } else {
+        res.render('../views/supervisorsViews/addHoursWorked', {employeeinfo: row, my_session: req.session});
+    }
+    });
 
-router.get('/supervisor/create', function(req, res, next) { //route has to be declared once
+        } else {
+            res.redirect('/login')
+        }
+});
+
+// Create post Router to send new employee salary info to the database 
+
+router.post('/supervisor/create/addinfo/:ot_rate/:reg_rate', function(req, res, next) { //route has to be declared once
     
     if(req.session.loggedin == true && req.session.user_Auth == 2) {
+        
+        var regularsal = parseInt(req.params.reg_rate) * parseInt(req.body.rg_wk);
+        var overtimesal = parseInt(req.params.ot_rate) * parseInt(req.body.ot_wk); 
+        var gross_sal = regularsal + overtimesal;
 
-        let sqlQuery = "UPDATE employee_salaries SET pay_cycle ='"+ req.body.f_name + 
-        "', employee_id ='" + req.body.l_name +
-        "', ot_worked ='" + req.body.h_from +
-        "', reg_hours_worked ='" + req.body.b_thru +
-        "', total_ot ='" + req.body.progam_id +
-        "', total_regsal ='" + req.body.num_ppl +
-        "', gross_pay ='" + req.body.req_date +
-        "' WHERE id = " + req.body.progam_id;
-            
-            conn.query(sqlQuery, (err, results) => {
+        let data = {   pay_cycle: req.body.pay_cycle, 
+                        employee_id: req.body.emp_id, 
+                        ot_worked: parseInt(req.body.ot_wk), 
+                        reg_hours_worked: parseInt(req.body.rg_wk), 
+                        total_ot: overtimesal,
+                        total_regsal: regularsal,
+                        gross_pay: gross_sal,
+                    };
+    
+            let sqlQuery = "INSERT INTO employee_salaries SET ?";
+            let vQuery = conn.query(sqlQuery, data,(err, results) => {
             if(err) {
                 console.log(err);
             }
                 else {
-                    res.redirect('/dc_allreqs');
+                    res.redirect('/supervisor');
                 }
-                next();
             });
         } else {
             res.redirect('/login')
         }
          
+});
+
+
+//renders supervisor's add new employee view
+
+router.get('/supervisor/addemployee', function(req, res, next) {
+    if(req.session.loggedin == true && req.session.user_Auth == 2) {
+
+        res.render('../views/supervisorsViews/addnewemployee', {my_session: req.session});
+        } else {
+            res.redirect('/login')
+        }
+});
+
+// Create post Router to send new employeeto the database 
+
+router.post('/supervisor/add/new_emply', (req, res) => {
+    if(req.session.loggedin == true && req.session.user_Auth == 2) {
+
+          let data = {   emply_id: req.body.emp_id, 
+                         emply_dep: req.session.emp_dep, 
+                         emply_fn: req.body.emp_fn, 
+                         emply_ln: req.body.emp_ln, 
+                         payscale: req.body.employ_pos,
+                        
+                    };
+    
+            let sqlQuery = "INSERT INTO employees SET ?";
+            let vQuery = conn.query(sqlQuery, data,(err, results) => {
+            if(err) {
+                console.log(err);
+            }
+                else {
+                    res.redirect('/supervisor');
+                }
+            });
+        } else {
+            res.redirect('/login')
+        }
+})
+
+
+//renders supervisor's edit employee information view
+router.get('/supervisor/empedit/:id', function(req, res, next) {
+    if(req.session.loggedin == true && req.session.user_Auth == 2) {
+     conn.query("SELECT  * FROM  employees WHERE emply_id =" + req.params.id, function(err,row){
+    if(err) {
+        console.log(err);
+    } else {
+        res.render('../views/supervisorsViews/editemployeeinfo', 
+        {
+        emplyInfo:row, 
+        my_session: req.session
         });
+    }
+    });
 
+        } else {
+            res.redirect('/login')
+        }
+});
 
+// Create post Router to send updated employee info to the database 
 
+router.post('/supervisor/empUpdate', (req, res, next) => {
+
+    const data = {
+        emply_id: req.body.emp_id, 
+        emply_dep: req.session.emp_dep, 
+        emply_fn: req.body.emp_fn, 
+        emply_ln: req.body.emp_ln, 
+        payscale: req.body.employ_pos,
+    }
+
+    conn.query('UPDATE employees SET ? WHERE emply_id = ' + req.body.emp_id, data, (err, row) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.redirect('/supervisor')
+        }
+    })
+    
+})
        
 
-router.get('/dc_allreqs/edit/:id', function(req, res) { //must be router.get or app.get or whatever else i choose but it has to be a get http verb
-    if(req.session.loggedin == true) {
-    conn.query("SELECT b.*, po.names FROM bookings b, programs_offered po WHERE b.program_applied = po.id AND b.id =" + req.params.id, function(err,row){
-    if(err) {
-        res.render('../views/dolphin_cove/editrequests', {editInfo:''});
-    } else {
-        res.render('../views/dolphin_cove/editrequests', {editInfo:row, my_session: req.session});
-    }
-    });
-} else {
-    res.redirect('/login')
-}
+
+//renders supervisor's leave days view
+
+router.get('/supervisor/addleaveday', function(req, res, next) {
+    if(req.session.loggedin == true && req.session.user_Auth == 2) {
+
+        res.render('../views/supervisorsViews/leavedays', {my_session: req.session});
+        } else {
+            res.redirect('/login')
+        }
+});
+
+// Create post Router to send new employeeto the database 
+
+router.post('/supervisor/add/leavedays', (req, res) => {
+    if(req.session.loggedin == true && req.session.user_Auth == 2) {
+
+        let data = {   employee_id: req.body.emp_id, 
+                        leave_day: req.body.lv_days, 
+                        details: req.body.dets, 
+                        days_applied: req.body.nums_dt, 
+                        date_from: req.body.dt_fr,
+                        date_to: req.body.dt_to,
+                    
+                    };
     
-});
-
-//Update all dc records
-router.post('/dc_allreqs/edit/dc_res' , (req, res, next) => {
-    if(req.session.loggedin == true) {
-
-    let sqlQuery = "UPDATE bookings SET primaryguest_fname ='"+ req.body.f_name + 
-    "', primaryguest_lname ='" + req.body.l_name +
-    "', hotel_from ='" + req.body.h_from +
-    "', booked_through ='" + req.body.b_thru +
-    "', program_applied ='" + req.body.progam_id +
-    "', number_of_guest ='" + req.body.num_ppl +
-    "', date_of_request ='" + req.body.req_date +
-    "', date_of_excursion ='" + req.body.excur_date +
-    "', payment_method ='" + req.body.pay_opts +
-    "' WHERE id = " + req.body.progam_id;
-        
-        conn.query(sqlQuery, (err, results) => {
-        if(err) {
-            console.log(err);
-        }
-            else {
-                res.redirect('/dc_allreqs');
+            let sqlQuery = "INSERT INTO leave_days SET ?";
+            let vQuery = conn.query(sqlQuery, data,(err, results) => {
+            if(err) {
+                console.log(err);
             }
-            next();
-        });
-    } else {
-        res.redirect('/login')
-    }
-
-        });
-
-//the delete routes for students
-router.get('/dc_allreqs/delete/:id', (req, res, next) => {
-    if(req.session.loggedin == true) {
-    conn.query('DELETE FROM bookings WHERE id =' + req.params.id, function(err, row){
-        if(err)  throw err;
-            res.redirect('/dc_allreqs');
-            next();
-        });
-    }else {
-        res.redirect('/login')
-    }
-    });
-
-router.get('/dc_allreqs/make_res', function(req, res, next) {
-    if(req.session.loggedin == true) {
-
-    res.render('../views/publicaccess/genreservations', {my_session: req.session});
-
-    } else {
-        res.redirect('/login')
-    }
-});
-
-router.post('/dc_allreqs/make_res/res_send' , (req, res) => {
-    if(req.session.loggedin == true) {
-
-    var voucher = Date.now().toString().slice(-5);
-    let data = {   primaryguest_fname: req.body.f_name, 
-                    primaryguest_lname: req.body.l_name, 
-                    hotel_from: req.body.h_from, 
-                    booked_through: req.body.b_thru, 
-                    program_applied: req.body.progam_id,
-                    number_of_guest: req.body.num_ppl,
-                    date_of_request: req.body.req_date,
-                    date_of_excursion: req.body.excur_date,
-                    voucher_no: voucher,
-                    program_cost: req.body.cost,
-                    payment_method: req.body.pay_opts
-                     };
-
-        let sqlQuery = "INSERT INTO bookings SET ?";
-        let vQuery = conn.query(sqlQuery, data,(err, results) => {
-        if(err) {
-            console.log(err);
+                else {
+                    res.redirect('/supervisor');
+                }
+            });
+        } else {
+            res.redirect('/login')
         }
-            else {
-                res.redirect('/dc_allreqs');
-            }
-        });
-    } else {
-        res.redirect('/login')
-    }
-        });
-
+})
 
 
 module.exports = router;

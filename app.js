@@ -24,9 +24,7 @@ var homeRouter = require('./routes/home');
 var userAuthRouter = require('./routes/userAuth');
 var employeesRouter = require('./routes/employees');
 var employeeCrudRouter = require('./routes/employeeCrud');
-// var allprogramsRouter = require('./routes/allprograms');
-// var dc_crudRouter = require('./routes/dc_crud');
-// var affiliates_crudRouter = require('./routes/affiliates_crud');
+var accountantCrudRouter = require('./routes/accountantCrud');
 
 
 
@@ -63,9 +61,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(userAuthRouter); 
 app.use(employeesRouter); 
  app.use(employeeCrudRouter);
-//  app.use(allprogramsRouter);
-//  app.use(dc_crudRouter);
-//  app.use(affiliates_crudRouter);
+ app.use(accountantCrudRouter);
 
 
  app.listen(port, () => console.log(`Listening on port ${port}..`));

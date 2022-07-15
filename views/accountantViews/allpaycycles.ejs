@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles.css">
+    <title>All Pay Cycles</title>
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+    
+    <h1>All Employees</h1>
+
+    <div>
+        
+        <% if(allpaycycles.length) {
+            for(var i = 0; i < allpaycycles.length; i++) { 
+         %>
+     
+            <table>
+                <thead>
+                <tr>
+                    <th>Paycycle</th>
+                    <th>Date To:</th>
+                    <th>Date From:</th>
+                    <th> Status </th>
+                </tr>
+                </thead>
+      
+                    <tbody>
+                        
+                        <tr>
+                            <td><%= allpaycycles[i].id %> </td>
+                            <td><%= new Date(allpaycycles[i].dt_from).toDateString() %> </td>
+                            <td><%= new Date(allpaycycles[i].dt_to).toDateString() %> </td>
+                            <% if (allpaycycles[i].cycle_status == 0) { %>
+                                <td>
+                                    inactive
+                                </td>
+                                    <% } else if (allpaycycles[i].cycle_status == 1) { %>
+                                        <td>
+                                            active
+                                        </td>
+                                <% } %>
+
+                            <td><%= allpaycycles[i].cycle_status %></td>
+                            <td> <a href="/AccountOff/viewpaycycle/<%= allpaycycles[i].id %>" >View Pay cycle</a> </td>
+                        </tr>
+                    </tbody>
+                
+            </table>
+
+         <% } %>
+    
+        <% } %>
+    </div>
+
+    <div class="btn">
+        <button>
+            <a href="/AccountOff/allemps">Add New Salary</a>
+            </button>
+        </div>
+
+    
+</body>
+</html>

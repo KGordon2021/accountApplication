@@ -28,9 +28,14 @@
             <p>
                 <a href="supervisor">Add Employee Hours</a>
             </p>
-                
+                <% } else if (my_session.user_Auth == 1) { %>
+                    <p>
+                        <a href="AccountOff">View Pay Roll</a>
+                    </p>
                <% } %>
         </div>
     </div>
+ 
+     
 </body>
 </html>

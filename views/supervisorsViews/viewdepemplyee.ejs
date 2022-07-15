@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles.css">
+    <title>Pay Cycles</title>
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+    
+    <h1>All Employees</h1>
+
+    <div>
+        
+        <% if(alldepEmployees.length) {
+            for(var i = 0; i < alldepEmployees.length; i++) { 
+         %>
+     
+            <table>
+                <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>First Name:</th>
+                    <th>Last Name:</th>
+                    <th> Action </th>
+                </tr>
+                </thead>
+      
+                    <tbody>
+                        
+                        <tr>
+                            <td><%= alldepEmployees[i].emply_id %> </td>
+                            <td><%= alldepEmployees[i].emply_fn %> </td>
+                            <td><%= alldepEmployees[i].emply_ln %> </td>
+                            <td> <a href="/supervisor/create/<%= alldepEmployees[i].emply_id %>" >Add Hours</a> </td>
+                             <td> <a href="/supervisor/empedit/<%= alldepEmployees[i].emply_id %>">Edit Employee</a></td>
+                        </tr>
+                    </tbody>
+                
+            </table>
+
+         <% } %>
+        <% } %>
+    </div>
+
+    <div class="btn">
+        <button>
+            <a href="/supervisor/addemployee">Add New Employee</a>
+            </button>
+            <button>
+            <a href="/supervisor/addleaveday">Add New Staff Leave Day Application</a>
+            </button>
+            
+        </div>
+
+    
+</body>
+</html>
