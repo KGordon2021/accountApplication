@@ -5,13 +5,17 @@
         <a href="">Commercials</a>
         <a href="">Shop</a>
         <a href="">Request Consultation</a>
-        <div class="drop">
-            <div class="hov">Account</div>
-            <div class="droplist">
+        <div class="dropdown">
+            <button class="dropped">Account</button>
+            <div class="dropdownlist">
+            <% if (my_session.loggedin == true) { %>
+               <a href="logout">Log out</a>
+               <% } else { %>
                 <a href="login">Login</a>
-                <a href="register">Register</a>
-                <a href="logout">Log out</a>
+            <% } %>
+              
+              <a href="register">Register</a>
             </div>
-        </div>
+          </div>
     </nav>
 </div>
