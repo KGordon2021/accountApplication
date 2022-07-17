@@ -275,21 +275,20 @@ body {
 /*Home Page About stylesheet*/
 
 .mment {
-    height: 100vh;
+    height: 140vh;
     width: 100%;
-    /* border: 2px solid yellow; */
     padding: 50px 100px;
-     border: 2px solid yellow;
+     /* border: 2px solid yellow; */
      background: url('https://prorange.ancorathemes.com/wp-content/uploads/2020/09/calc-bg-copyright.jpg?id=1220');
-     /* background-position: fixed ; */
      background-repeat: no-repeat;
      background-size: cover;
 }
 
 .mment .form {
     display: flex;
+    height: 100%;
     flex-direction: column;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     color: #406870;
     width: 700px;
 }
@@ -300,18 +299,316 @@ body {
     padding: 20px 0px;
 }
 
-.mment .form p {
+.mment .form p{
     font-size: 18px;
     font-weight: 500;
     padding-bottom: 20px;
     line-height: 2rem;
 }
 
-.mment .form .
+.mment .form label {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 3.5rem;
+}
+
+/* .mment .form .sizeCon {
+    border: 2px solid orange;
+} */
+
+.mment .form .sizeCon input {
+    width: 250px;
+    padding : 15px;
+    margin-right: 30px;
+    border: 1px solid silver;
+    margin-left: 15px;
+}
+
+.mment .form .sizeCon  .bxs2 {
+    padding: 30px 0px; 
+    display: flex;
+    flex-direction: row;
+}
+
+.mment .form .moreInfo .select{
+    display: flex;
+    flex-direction: column;
+}
+
+.mment .form .moreInfo .select label {
+    line-height: 1.8rem;
+    font-size: 17px;
+}
+
+.mment .form .subs {
+    margin-top:  40px;
+}
+
+.mment .form .subs button {
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    background: #BCB894;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+}
+
 
 /*End of Home Page About stylesheet*/
 
 
+
+/*Home Page About2 stylesheet*/
+
+.about2 {
+    height: 100vh;
+    width: 100%;
+    padding: 50px 100px;
+     /* border: 2px solid yellow; */
+     background: url('https://prorange.ancorathemes.com/wp-content/uploads/2017/03/bg-7.jpg?id=247');
+     background-repeat: no-repeat;
+     background-size: cover;
+}
+
+.about2 .abt {
+    width: 550px;
+    height: 450px;
+    /* border: 2px solid yellow; */
+    display: flex;
+    flex-direction: column;
+    padding: 150px 100px;
+    /* background: #20454d; */
+    margin-left: auto
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+
+.about2 .abt .title h2{
+    font-size: 55px;
+    font-weight: 540;
+    color: #fff;
+}
+
+.about2 .abt hr {
+    width: 70px;
+    margin: 20px 0px;
+    border: 1px solid #BCB894;
+}
+
+.about2 .abt p {
+    line-height: 1.5rem;
+    font-size: 17px;
+    padding: 20px 0px;
+    color: #fff;
+}
+
+
+.about2 .abt button {
+    width: 150px;
+    background: #BCB894;
+    color: #20454d;
+    border: none;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+/*End of Home Page About2 stylesheet*/
+
+
+/*Home Page About2 stylesheet*/
+
+.about3 {
+    height: 100vh;
+    width: 100%;
+    padding: 50px 100px;
+     background: url('https://prorange.ancorathemes.com/wp-content/uploads/2020/09/go-bg-copyright.jpg?id=1239');
+     background-repeat: no-repeat;
+     background-size: cover;
+}
+
+.about3 .abt {
+    width: 550px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    padding: 150px 100px;
+}
+
+
+.about3 .abt .title h2{
+    font-size: 55px;
+    font-weight: 540;
+    color: #fff;
+}
+
+.about3 .abt hr {
+    width: 70px;
+    margin: 20px 0px;
+    border: 1px solid #BCB894;
+}
+
+.about3 .abt p {
+    line-height: 1.5rem;
+    font-size: 17px;
+    padding: 20px 0px;
+    color: #fff;
+}
+
+
+.about3 .abt button {
+    width: 150px;
+    background: #BCB894;
+    color: #20454d;
+    border: none;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+/*End of Home Page About2 stylesheet*/
+
+
+/*Home Page hhWork stylesheet*/
+.hwWork2 {
+    height: 100vh;
+    width: 100%;
+    /* border: 2px solid yellow; */
+    display: flex;
+    padding: 50px 100px;
+    /* flex-direction: row; */
+}
+
+.hwWork2 .bxCon {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    margin-top: 80px;
+    /* align-items: center; */
+
+} 
+
+.hwWork2 .bxCon .left, .hwWork2 .bxCon .right, 
+.hwWork2 .bxCon .left, .hwWork2 .bxCon .left {
+    /* border: 2px solid red; */
+    width: 350px;
+}
+
+.hwWork2 .bxCon .left .box{
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.hwWork2 .bxCon .left .box .dets {
+    padding-right: 15px;
+}
+
+.hwWork2 .bxCon .right .box{
+    text-align: left;
+
+}
+
+.hwWork2 .bxCon .right .box .dets {
+    padding-left: 20px;
+}
+
+.hwWork2 .bxCon .right .box{
+    display: flex;
+    flex-direction: row;
+}
+
+.hwWork2 .bxCon .box .icon {
+    background: #BCB894;
+    padding: 25px;
+    height: 30px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.hwWork2 .bxCon h2 {
+    font-size: 32px;
+}
+
+.hwWork2 .bxCon p {
+    line-height: 1.8rem;
+}
+
+.hwWork2 .bxCon .box {
+     margin-top: 50px;
+     padding: 0px 20px;
+    }
+
+/*End of Home Page hhWork stylesheet*/
+
+
+
+/*Home Page logoSlider stylesheet*/
+
+.logoslider {
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    padding: 50px 100px;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #f0f4f7;
+    cursor: grab;
+}
+/*End of Home Page logoSlider stylesheet*/
+
+/*Home Page reviews stylesheet*/
+
+.reviews {
+        height: 100vh;
+        width: 100%;
+        /* border: 2px solid yellow; */
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+        text-align: center;
+        padding: 50px 100px;
+    }
+    
+.reviews h2 {
+    font-size: 50px;
+    font-weight: 540;
+    color: #20454d;
+}
+
+.reviews .review {
+    padding-top:  100px;
+    /* border: 2px solid green; */
+    width: 900px;
+    line-height: 2rem;
+    font-style: italic;
+}
+
+
+.reviews .review p {
+    font-size: 25px;
+    font-weight: 540;
+    color: #20454d;
+}
+
+.reviews .review .rw_nm {
+    padding-top: 20px;
+    font-style: normal;
+    font-size: 22px;
+    color: #BCB894;
+}
+
+.reviews .review .prof_t {
+    /* padding-top: 5px; */
+    font-style: normal;
+    font-size: 19px;
+    /* color: #BCB894; */
+}
+/*End of Home Page reviews stylesheet*/
 
 /*Home Page About stylesheet*/
 
@@ -460,3 +757,89 @@ body {
     font-size: 14px;
     padding: 5px 0px 5px 20px;
 }
+
+
+/*footer stylesheet*/
+ footer .footer {
+    display: flex;
+    flex-direction: row;
+    /* height: 50vh; */
+    width: 100%;
+    background: #20454d;
+    padding: 100px;
+ }
+
+ footer .footer .socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+ }
+ footer .footer .socials .icons {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin: 0px 10px;
+    background-color: #0e2227;
+    border-radius: 50%;
+    transition: all ease-in-out 0.8s;
+ }
+ footer .footer .socials .icons:hover {
+    background: #406870;
+    border: 1px solid #fff;
+ }
+ footer .footer .socials .icons svg {
+    width: 100%;
+    height: 100%;
+    fill: #fff;
+    cursor: pointer;
+ }
+
+ footer .footer .contact, 
+ footer .footer .located {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    /* border: 2px solid red */
+ }
+
+ footer .footer .contact {
+    text-align: right;
+ }
+    footer .footer .genInfo {
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    /* border: 2px solid red; */
+    padding: 0px 40px;
+    text-align: center;
+ }
+
+ footer .footer h2 {
+    font-size: 30px;
+    font-weight: 540;
+    color: #fff;
+    /* text-align: center; */
+    padding: 20px 0px;
+ }
+
+ footer .footer p {
+    font-size: 17px;
+    font-weight: 540;
+    color: rgb(230, 223, 223);
+    line-height: 1.8rem;
+    /* text-align: center; */
+    /* padding: 20px 0px; */
+ }
+
+ footer .copyRight {
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    text-align: center;
+    height: 50px;
+    font-size: 18spx;
+    color: #fff;
+    background: #0e2227;
+    padding-top: 15px;
+ }
