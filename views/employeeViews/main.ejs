@@ -11,19 +11,23 @@
 <body>
     <%- include('../partials/nav.ejs') %>
 
-    <div>
+    <div class="mainlanding">
+        <div class="imgbx">
+            <img src="https://cdn4.iconfinder.com/data/icons/job-avatar/512/Job_Avatar-15-512.png" alt="">
+        </div>
 
-        <h1>Welcome Back
+        <h1 class="welcome">Welcome Back
             <% if (my_session.loggedin == true) { %>
              <%= my_session.first_Nm %> 
             <% } %>
         </h1>
-        <p>How Can We Assist you today?</p>
+        <p class="greet">How Can We Assist You Today?</p>
         <div class="opts">
             <input type="hidden" value="<%= my_session.emp_id %>" name="user_id">
             <p><a href="">Request HR Consultation</a></p>
             <p><a href="/employees/allplayslip/<%= my_session.emp_id %>">View Pay Slips</a></p>
             
+            <div class="buttons">
             <% if (my_session.user_Auth == 2) { %>
             <p>
                 <a href="supervisor">Add Employee Hours</a>
@@ -33,9 +37,11 @@
                         <a href="AccountOff">View Pay Roll</a>
                     </p>
                <% } %>
+            </div>
         </div>
     </div>
  
-     
+    <%- include('../partials/footer.ejs') %>
+
 </body>
 </html>

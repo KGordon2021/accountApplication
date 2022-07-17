@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/styles.css">
+    <link rel="stylesheet" href="../../public/styles.css">
     <title>Pay Cycles</title>
 </head>
 
@@ -13,7 +13,7 @@
     
     <h1>All Pay Slips </h1>
 
-    <div>
+    <div class="allpayslips">
         <% if(allpayslips.length) {
             for(var i = 0; i < allpayslips.length; i++) { 
          %>
@@ -43,6 +43,7 @@
         <% } %>
     </div>
 
-    
+    <%- include('../partials/footer.ejs') %>
+
 </body>
 </html>
