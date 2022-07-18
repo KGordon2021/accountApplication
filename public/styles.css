@@ -819,26 +819,165 @@ body {
 /*end of employees views mainlanding stylesheet*/
 
 
+
+
 /*all employess view all payslips view*/
 
-.allpayslips {
+.allpayslipCon {
     width: 100%;
     height: 100%;
-    padding: 50px 100px 0px 100px;
-    border: 2px solid orange;
+    padding: 100px 100px 50px 100px;
     display: flex;
-    /* align-items: center;
-    justify-content: center; */
-    flex-direction: column; 
-    text-align: center;
+    flex-direction: row;
+    border: 4px solid yellow
 }
 
 
+.allpayslipCon .personnel {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    /* border: 4px solid red; */
+    align-items: center;
+    padding: 30px 20px;
+    background: #20454d;
+    border-radius: 5px;
+    box-shadow: 5px 8px 15px rgba(0,0,0,0.2);
+}
 
 
+.allpayslipCon .personnel .imgBx {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #0e2227;
+    background: #fff;
+}
+
+.allpayslipCon .personnel .imgBx img {
+    width: 100%;
+    height: 100%;
+}
+
+.allpayslipCon .personnel .pr_lgin {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: oblique;
+    color: #fff;
+
+}
+
+.allpayslipCon .personnel .dets p {
+    width: 100%;
+    text-align: left;
+    color: #fff;
+    /* padding: 5px 0px; */
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.8rem;
+    /* font-style: oblique; */
+}
+
+.allpayslipCon .personnel .dets .btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+
+}
+.allpayslipCon .personnel .dets .btn button{
+    width: 200px;
+    padding: 8px;
+    background:#BCB894;
+    cursor: pointer;
+    color: #20454d;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+}
+
+.allpayslipCon .personnel .opts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-top: 30px; */
+
+}
+
+.allpayslipCon .allpayslips {
+    /* border: 5px solid #BCB894; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 20px;
+    padding: 0px 20px;
+}
+
+.allpayslipCon .allpayslips h1 {
+    font-size: 40px;
+    font-weight: 500;
+    padding: 20px 0px;
+}
+
+.allpayslipCon .allpayslips table {
+    border: 2px solid #BCB894;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 15px;
+    width: 600px;
+    margin-left: auto;
+    transition: all ease-in-out 0.8s;
+}
+
+.allpayslipCon .allpayslips table:hover {
+    box-shadow: -8px 6px 6px rgba(0,0,0,0.2);
+}
+
+.allpayslipCon .allpayslips .opts {
+    /* justify-self: flex-end; */
+    display: flex;
+    margin-top: auto;
+    justify-content: space-between;
+
+}
+
+.allpayslipCon .allpayslips .opts a {
+    text-decoration: none;
+    width: 150px;
+    padding: 8px;
+    background:#BCB894;
+    cursor: pointer;
+    color: #20454d;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+}
 
 /* end of all employess view all payslips view*/
 
+
+
+
+/*Employees view current paycycle stylesheet*/
+
+.allpayslipCon .allpayslips .tableInfo{
+    width: 500px;
+    height: 100%;
+    border: 2px solid green;
+    padding: 50px;
+}
+
+.allpayslipCon .allpayslips .tableInfo .Dates {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+
+/*End of Employees view current paycycle stylesheet*/
 
 
 /*footer stylesheet*/

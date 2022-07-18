@@ -10,39 +10,70 @@
 
 <body>
     <%- include('../partials/nav.ejs') %>
+  
+    <div class="allpayslipCon">
+        <div class="personnel">
+            <div class="imgBx">
+                <img src="https://cdn4.iconfinder.com/data/icons/job-avatar/512/Job_Avatar-15-512.png" alt="">
+            </div>
+            <div class="box">
+                <div class="pr_lgin">  <%= my_session.first_Nm %>  </div>
+              
+                <div class="dets">
+                    <p>Joined the Family: December 06, 2021</p>
+                    <p>Vacation Days Available: 10</p>
+                    <p>Sick Days Available: 10</p>
+                    <div class="btn">
+                        <button>Apply for Leave</button> <br>
+                        <button>Contact Human Resources</button>    
+                    </div>
+                </div>
+                
+            </div>
+        </div>
     
-    <h1>All Pay Slips </h1>
-
-    <div class="allpayslips">
-        <% if(allpayslips.length) {
-            for(var i = 0; i < allpayslips.length; i++) { 
-         %>
-            <table>
-                <thead>
-                <tr>
-                    <th>Cycle</th>
-                    <th>Date From:</th>
-                    <th>Date To:</th>
-                    <th> Action </th>
-                </tr>
-                </thead>
+        <div class="allpayslips">
                 
-                    <tbody>
+            <h1>Viewing All Pay Slips </h1>
+            
+                <% if(allpayslips.length) {
+                    for(var i = 0; i < allpayslips.length; i++) { 
+                 %>
+                    <table>
+                        <thead>
                         <tr>
-                            <td><%= allpayslips[i].pay_cycle %> </td>
-                            <td><%= new Date(allpayslips[i].dt_from).toDateString('fr-CA') %> </td>
-                            <td><%= new Date(allpayslips[i].dt_to).toDateString('fr-CA') %> </td>
-                            <td> <a href="/employees/viewplayslip/<%= allpayslips[i].id %>" >View Pay Slip</a> </td>
-                            <td> </td>
+                            <th>Cycle</th>
+                            <th>Date From:</th>
+                            <th>Date To:</th>
+                            <th> Action </th>
                         </tr>
-                    </tbody>
+                        </thead>
+                        
+                            <tbody>
+                                <tr>
+                                    <td><%= allpayslips[i].pay_cycle %> </td>
+                                    <td><%= new Date(allpayslips[i].dt_from).toDateString('fr-CA') %> </td>
+                                    <td><%= new Date(allpayslips[i].dt_to).toDateString('fr-CA') %> </td>
+                                    <td> <a href="/employees/viewplayslip/<%= allpayslips[i].id %>" >View Pay Slip</a> </td>
+                                
+                                </tr>
+                            </tbody>
+                        
+                    </table>
+        
+                 <% } %>
+                <% } %>
                 
-            </table>
+                <div class="opts">
+                    <a href="/employees">Home</a>
+                    <a href="/logout"> Log Out</a>
+                </div>
+            </div>
+        
 
-         <% } %>
-        <% } %>
     </div>
 
+ 
     <%- include('../partials/footer.ejs') %>
 
 </body>
