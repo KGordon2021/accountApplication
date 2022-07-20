@@ -4,57 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/styles.css">
-    <title>User Login</title>
+    <link rel="stylesheet" href="../../../../public/styles.css">
+    <title>View Payslip</title>
 </head>
 
 <body>
     <%- include('../partials/nav.ejs') %>
     <h1>Current Pay Slip</h1>
 
-     <div>
+    <div class="allpayslipCon">
+        <div class="personnel">
+            <div class="imgBx">
+                <img src="https://cdn4.iconfinder.com/data/icons/job-avatar/512/Job_Avatar-15-512.png" alt="">
+            </div>
+            <div class="box">
+                <div class="pr_lgin">  <%= my_session.first_Nm %>  </div>
+              
+                <div class="dets">
+                    <p>Joined the Family: December 06, 2021</p>
+                    <p>Vacation Days Available: 10</p>
+                    <p>Sick Days Available: 10</p>
+                    <div class="btn">
+                        <button>Apply for Leave</button> <br>
+                        <button>Contact Human Resources</button>    
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+     <div class="allpayslips">
 
         <% if(viewpayslip.length) {
             for(var i = 0; i < viewpayslip.length; i++) { 
          %>
-         <div class="empdepts">
-         <h2> <%= viewpayslip[i].emply_fn %> <%= viewpayslip[i].emply_ln %> </h2>
-            
-            </div>
-         <h3> <%= viewpayslip[i].employee_id %> </h3>
-            <table>
-                <thead>
-                <tr>
-                    <th>Pay Cycle</th>
-                    <th> Regular Hours Worked </th>
-                    <th>Over Time Worked</th>
-                    <th>Total Regular Time Paid</th>
-                    <th>Total Over Time Paid</th>
-                </tr>
-                </thead>
-                    <tbody>
-                        <tr>
-                            <td><%= viewpayslip[i].pay_cycle %> </td>
-                            
-                            <td> <%= viewpayslip[i].reg_hours_worked %>  </td>
-                            <td> <%= viewpayslip[i].ot_worked %>  </td>
-                            <td> <%= viewpayslip[i].total_regsal %>  </td>
-                            <td> <%= viewpayslip[i].total_ot %>  </td>
-                        </tr>
 
-                        <tr>
-                             <th colspan="8" style="text-align: right;"> Gross Salary</th>
-                        </tr>
-                        <tr>
-                            <td colspan="8" style="text-align: right;"> <%= viewpayslip[i].gross_pay %>  </td>
-                        </tr>
-                    </tbody>
-                
-            </table>
+
+        <div class="tableInfo">
+            <div class="titlebox">
+                <h2 class="cycles"> <%= viewpayslip[i].emply_fn %> <%= viewpayslip[i].emply_ln %> </h2>
+                <h3 class="cycles"> <%= viewpayslip[i].employee_id %> </h3>
+                <p class="cycles">Pay Cycle #: <%= viewpayslip[i].pay_cycle %></p>
+
+             </div>
+
+                <div class="Dates">
+                    <p>Date From: <%= new Date(viewpayslip[i].dt_from).toDateString('fr-CA') %></p>
+                    <p>Date To: <%= new Date(viewpayslip[i].dt_to).toDateString('fr-CA') %></p>
+                </div>
+                <div class="hours">
+                    <p> Regular Hours Worked: <span><%= viewpayslip[i].reg_hours_worked %> </span> </p>
+                    <p>Over Time Worked: <span><%= viewpayslip[i].ot_worked %></span>  </p>                  
+                </div>
+                <div class="pay">
+                    <p>Total Regular Time Paid: <span> $ <%= viewpayslip[i].total_regsal %></span> </p>
+                    <p>Total Over Time Paid: <span> $ <%= viewpayslip[i].total_ot %></span></p> 
+                </div>
+           
+                <div class="gross">
+                <p>Gross Pay: <span>$ <%= viewpayslip[i].gross_pay %></span></p>
+                </div>
+            </div>
+                  
+        
 
          <% } %>
         <% } %>
+
+        <div class="opts">
+                    <a href="/accountOff">Back</a>
+                    <a href="/logout"> Log Out</a>
+                </div>
+            </div>
     </div>
+
+    <%- include('../partials/footer.ejs') %>
+
 
 </body>
 </html>

@@ -9,4 +9,9 @@ router.get('/', function(req, res, next) {
 
 });
 
+router.get('/residential', function(req, res, next) {
+    // res.render('../views/home', {my_session: req.session});
+    res.render('../views/publicViews/residential', {my_session: req.session});
+
+});
 module.exports = router;

@@ -4,55 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/styles.css">
+    <link rel="stylesheet" href="../../public/styles.css">
     <title>Leave Days Application</title>
 </head>
 
 <body>
     <%- include('../partials/nav.ejs') %>
-    
-    <h1>All Employees</h1>
 
-    <form action="/supervisor/add/leavedays" method="post">
-
-        <div>
-            <label for="">Employee Id:</label>
-            <input type="number" name="emp_id" id="">
+    <div class="addCon2">
+        <div class="txtBox2">
+            <img src="https://wallpapercave.com/wp/P42nRq2.jpg" alt="">
         </div>
 
-        <div>
-            <label for="">Leave Day Requested:</label>
-            <select name="lv_days" id="">
-                <option value="Sick Day">Sick Day</option>
-                <option value="Compassionate Leave">Compassionate Leave</option>
-                <option value="Maternity Leave">Maternity Leave </option>
-                <option value="Other">Other</option>
-            </select>
-        </div>
+    <div class="form">
 
-        <div>
-            <label for="">Details: </label>
-            <textarea name="dets" id="" cols="30" rows="10"></textarea>
-        </div>
+            <form action="/supervisor/add/leavedays" method="post">
+                <div class="top">
+                    <h2>Leave Day Application</h2>
+                    <hr>
+                </div> 
+               
+        <div class="sup_add sup_add2">
 
-        <div>
-            <label for="">Number of Day Requested:</label>
-            <input type="number" name="nums_dt" id="">
-        </div>
+                <div class="foremp">
+                    <label for="">Employee Id: </label>
+                    <input type="number" name="emp_id" id="">
+                </div>
 
-        <div>
-            <label for="">From:</label>
-            <input type="date" name="dt_fr" id="">
-        </div>
+                <div>
+                    <label for="">Leave Day Requested:</label>
+                    <select name="lv_days" id="">
+                        <option value="Vacation Days">Vacation Day</option>
+                        <option value="Sick Days">Sick Day</option>
+                        <option value="Compassionate Leave">Compassionate Leave</option>
+                        <option value="Maternity Leave">Maternity Leave </option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
 
-          <div>
-            <label for="">To:</label>
-            <input type="date" name="dt_to" id="">
-        </div>
+                <div class="dets">
+                    <label for="">Details: </label>
+                    <textarea name="dets" id="" cols="30" rows="2"></textarea>
+                </div>
 
-        <div>
-            <input type="submit" value="submit">
+                <div>
+                    <label for="">Number of Day Requested:</label>
+                    <input type="number" name="nums_dt" id="">
+                </div>
+
+                <div>
+                    <label for="">From:</label>
+                    <input type="date" name="dt_fr" id="">
+                </div>
+
+                <div>
+                    <label for="">To:</label>
+                    <input type="date" name="dt_to" id="">
+                </div>
+
+                <div class="add">
+                    <input type="submit" value="submit">
+                </div>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
+</div>
+    <%- include('../partials/footer.ejs') %>
 </body>
 </html>

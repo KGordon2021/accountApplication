@@ -9,9 +9,33 @@
 </head>
 
 <body>
-    <%- include('../partials/nav.ejs') %>
     
-    <h1>All Employees</h1>
+    <%- include('../partials/nav.ejs') %>
+
+    <div class="allpayslipCon">
+        <div class="personnel">
+            <div class="imgBx">
+                <img src="https://cdn4.iconfinder.com/data/icons/job-avatar/512/Job_Avatar-15-512.png" alt="">
+            </div>
+            <div class="box">
+                <div class="pr_lgin"> Supervisor:  <%= my_session.first_Nm %>  </div>
+              
+                <div class="dets">
+                    <p>Joined the Family: December 06, 2021</p>
+                    <p>Vacation Days Available: 10</p>
+                    <p>Sick Days Available: 10</p>
+                    <div class="btn">
+                        <button>Apply for Leave</button> <br>
+                        <button>Contact Human Resources</button>    
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    
+        <div class="allpayslips">
+    
+    <h1>All Department Employees</h1>
 
     <div>
         
@@ -46,16 +70,17 @@
         <% } %>
     </div>
 
-    <div class="btn">
-        <button>
-            <a href="/supervisor/addemployee">Add New Employee</a>
-            </button>
-            <button>
-            <a href="/supervisor/addleaveday">Add New Staff Leave Day Application</a>
-            </button>
+    <div class="opts linkbtns">
+        
+            <a href="/supervisor/addemployee">Add Employee</a>            
+            <a href="/supervisor/addleaveday">Add Staff Leave Day Application</a>
+           
             
         </div>
+    </div>
+    </div>
 
+        <%- include('../partials/footer.ejs') %>
     
 </body>
 </html>

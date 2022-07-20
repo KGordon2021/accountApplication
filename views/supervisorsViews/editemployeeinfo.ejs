@@ -4,17 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/styles.css">
+    <link rel="stylesheet" href="../../public/styles.css">
     <title>Add Employees</title>
 </head>
 
 <body>
     <%- include('../partials/nav.ejs') %>
-    
-    <h1>All Employees</h1>
 
+      
+    <div class="addCon">
+        <div class="txtBox">
+            <h1>Edit Employee Hour</h1> 
+        </div>
+    <div class="form">
+        <div>
+   
     <form action="/supervisor/empUpdate" method="post">
-
+        <div class="top">
+            <h2><%= emplyInfo[0].emply_fn %> <%= emplyInfo[0].emply_ln %></h2>
+           <h3><%= emplyInfo[0].dp_nm %> Department</h3>
+           <hr>
+        </div> 
+        <div class="sup_add">
         <div>
             <label for="">Employee Id: </label>
             <input type="text" name="emp_id" placeholder="<%= emplyInfo[0].emply_id %> ">
@@ -44,9 +55,15 @@
                 <option value="4">supervisor</option>
             </select>
         </div>
-        <div>
+        <div class="add">
             <input type="submit" value="submit">
         </div>
     </form>
+</div>
+</div>
+</div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
 </body>
 </html>

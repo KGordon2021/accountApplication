@@ -4,13 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/styles.css">
+    <link rel="stylesheet" href="../../public/styles.css">
     <title>Pay Cycles</title>
 </head>
 
 <body>
     <%- include('../partials/nav.ejs') %>
     
+    <div class="allpayslipCon">
+        <div class="personnel">
+            <div class="imgBx">
+                <img src="https://cdn4.iconfinder.com/data/icons/job-avatar/512/Job_Avatar-15-512.png" alt="">
+            </div>
+            <div class="box">
+                <div class="pr_lgin"> Supervisor:  <%= my_session.first_Nm %>  </div>
+              
+                <div class="dets">
+                    <p>Joined the Family: December 06, 2021</p>
+                    <p>Vacation Days Available: 10</p>
+                    <p>Sick Days Available: 10</p>
+                    <div class="btn">
+                        <button>Apply for Leave</button> <br>
+                        <button>Contact Human Resources</button>    
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    
+        <div class="allpayslips allpayslips2">
+
     <h1>All Employees for Current Pay Cycle</h1>
 
     <div>
@@ -54,12 +77,16 @@
 
         <% } %>
     </div>
-    <div class="btn">
-        <button>
+    <div class="opts">
+        
             <a href="/AccountOff/allemps">Add New Employee Hours</a>
-            </button>
+            
         </div>
         
-    
+ </div>
+</div>
+
+    <%- include('../partials/footer.ejs') %>
+   
 </body>
 </html>

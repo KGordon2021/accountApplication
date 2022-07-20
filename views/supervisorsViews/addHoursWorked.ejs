@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/styles.css">
+    <link rel="stylesheet" href="../../public/styles.css">
     <title>Add Hours</title>
 </head>
 
 <body>
     <%- include('../partials/nav.ejs') %>
-    
-    <h1>All Employees</h1>
+
+    <div class="addCon">
+        <div class="txtBox">
+            <h1>Add Employee Hour</h1> 
+        </div>
+   
+    <div class="form">
 
     <div>
         <form action="/supervisor/create/addinfo/<%= employeeinfo[0].ot_rate %>/<%= employeeinfo[0].reg_rates %>" method="post">
-        
+        <div class="top">
          <h2><%= employeeinfo[0].emply_fn %> <%= employeeinfo[0].emply_ln %> </h2>
-            <h3><%= employeeinfo[0].dp_nm %> Department</h3>
-                    <div>
+        <h3><%= employeeinfo[0].dp_nm %> Department</h3>
+        <hr>
+            </div> 
+
+                    <div class="sup_add">
+
+                 <div>
                         <label for="">Pay Cycles: </label>
                         <select name="pay_cycle" id="">
                             <option value="1">January</option>
@@ -54,12 +64,22 @@
                     <div class="add">
                         <input type="submit" value="Add Employee Hours">
                     </div>
+
+                </div>
+
                 </form>
-        </div>                    
+        </div>  
+        
+        
         <div>
             <input type="hidden" name="ot_rt" value="<%= employeeinfo[0].ot_rate %>">
             <input type="hidden" name="reg_rt" value="<%= employeeinfo[0].reg_rates %>">
         </div>
     </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
+
 </body>
 </html>

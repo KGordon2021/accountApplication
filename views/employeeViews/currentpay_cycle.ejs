@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles.css">
-    <title>User Login</title>
+    <title>View Payslip</title>
 </head>
 
 <body>
@@ -39,8 +39,10 @@
             for(var i = 0; i < currentpayslip.length; i++) { 
          %>
            <div class="tableInfo">
+            <div class="titlebox">
+                <p class="cycles">Pay Cycle #: <%= currentpayslip[i].pay_cycle %></p>
 
-            <p class="cycles">Pay Cycle #: <%= currentpayslip[i].pay_cycle %></p>
+             </div>
 
                 <div class="Dates">
                     <p>Date From: <%= new Date(currentpayslip[i].dt_from).toDateString('fr-CA') %></p>
@@ -48,14 +50,16 @@
                 </div>
                 <div class="hours">
                     <p> Regular Hours Worked: <span><%= currentpayslip[i].reg_hours_worked %> </span> </p>
-                    <p>Over Time Worked: <span><%= currentpayslip[i].ot_worked %></p>               </span>     
+                    <p>Over Time Worked: <span><%= currentpayslip[i].ot_worked %></span>  </p>                  
                 </div>
                 <div class="pay">
-                    <p>Total Regular Time Paid: <span><%= currentpayslip[i].total_regsal %></span> </p>
-                    <p>Total Over Time Paid: <span><%= currentpayslip[i].total_ot %></span></p> 
+                    <p>Total Regular Time Paid: <span> $ <%= currentpayslip[i].total_regsal %></span> </p>
+                    <p>Total Over Time Paid: <span> $ <%= currentpayslip[i].total_ot %></span></p> 
                 </div>
            
-                <p>Gross Pay: <%= currentpayslip[i].gross_pay %></p>
+                <div class="gross">
+                <p>Gross Pay: <span>$ <%= currentpayslip[i].gross_pay %></span></p>
+                </div>
             </div>
                   
 
@@ -64,7 +68,7 @@
 
                   
         <div class="opts">
-                    <a href="/employees">Home</a>
+                    <a href="/employees/allplayslip/:id">Back</a>
                     <a href="/logout"> Log Out</a>
                 </div>
             </div>

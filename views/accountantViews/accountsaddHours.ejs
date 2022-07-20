@@ -4,20 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/styles.css">
+    <link rel="stylesheet" href="../../../public/styles.css">
     <title>Add Hours</title>
 </head>
 
 <body>
     <%- include('../partials/nav.ejs') %>
-    
-    <h1>All Employees</h1>
 
-    <div>
+    
+    <div class="addCon">
+        <div class="txtBox">
+            <h1>Add Employee Hours</h1> 
+        </div>
+
+
+    <div class="form">
+
+        <div>
+    
         <form action="/accounts/emphour/new/<%= employeeInfo[0].ot_rate %>/<%= employeeInfo[0].reg_rates %>" method="post">
-        
-         <h2><%= employeeInfo[0].emply_fn %> <%= employeeInfo[0].emply_ln %> </h2>
-            <h3><%= employeeInfo[0].dp_nm %> Department</h3>
+            <div class="top">
+                <h2><%= employeeInfo[0].emply_fn %> <%= employeeInfo[0].emply_ln %> </h2>
+               <h3><%= employeeInfo[0].dp_nm %> Department</h3>
+               <hr>
+            </div> 
+       
+        <div class="sup_add">
                     <div>
                         <label for="">Pay Cycles: </label>
                         <select name="pay_cycle" id="">
@@ -61,5 +73,9 @@
             <input type="hidden" name="reg_rt" value="<%= employeeInfo[0].reg_rates %>">
         </div>
     </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
 </body>
 </html>
